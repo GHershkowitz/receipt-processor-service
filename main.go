@@ -23,6 +23,7 @@ type Item struct {
 
 var dbReceipts = make(map[string]*Receipt)
 var dbReceiptScore = make(map[string]int)
+var port = "8080"
 
 func main() {
 	r := mux.NewRouter()
@@ -31,8 +32,8 @@ func main() {
 	r.HandleFunc("/receipts/{id}/points", GetPointsHandler).Methods("GET")
 
 	http.Handle("/", r)
-	fmt.Println("server has started...")
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("server has started on port", port)
+	http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 }
 
 func ProcessReceiptsHandler(w http.ResponseWriter, r *http.Request) {

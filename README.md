@@ -1,12 +1,46 @@
 <h1>Receipt Processor</h1>
 
-To run this service locally, run the following command
+To run this service locally, run the following command, default port is `8080`
 
 `go run main.go app.go`
 
 To run the tests for this application, run
 
 `go test`
+
+<h3> Endpoints </h3>
+
+To hit the service's endpoints after it is running, you can use
+
+POST `localhost:8080/receipts/process` with the following body
+
+```
+{
+  "retailer": "M&M Corner Market",
+  "purchaseDate": "2022-03-20",
+  "purchaseTime": "14:33",
+  "items": [
+    {
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    },{
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    },{
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    },{
+      "shortDescription": "Gatorade",
+      "price": "2.25"
+    }
+  ],
+  "total": "9.00"
+}
+
+```
+
+GET `localhost:8080/receipts/{id}/points` with the ID provided from the above call.
+
 
 <h3>Considerations</h3>
 
