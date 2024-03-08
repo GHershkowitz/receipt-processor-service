@@ -2,11 +2,11 @@
 
 To run this service locally, run the following command, default port is `8080`
 
-`go run main.go app.go`
+```go run main.go app.go```
 
 To run the tests for this application, run
 
-`go test`
+```go test```
 
 <h3> Endpoints </h3>
 
